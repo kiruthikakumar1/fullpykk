@@ -1,0 +1,147 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+Service Center profile
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+    style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+    <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+            PHONESMITH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'centerorder' pro.company_name %}">Analytical page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'addproduct' %}">Add products</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="text-white mb-5" style="margin-top: 100px;">
+    <h1 class="text-center text-primary mb-5">{{pro.company_name}} Service Center Profile Page</h1>
+    <div class="d-flex flex-row justify-content-center column-gap-5">
+        <div>
+            <img src="{{pro.company_image.url}}" alt="" class="img-thumbnail"
+                style="object-fit: contain; width: 275px; height: 284px;">
+        </div>
+        <div>
+            <div>
+                <h5>Name</h5>
+            </div>
+            <div>
+                <h5>Email</h5>
+            </div>
+            <div>
+                <h5>Password</h5>
+            </div>
+            <div>
+                <h5>Description</h5>
+            </div>
+            <div>
+                <h5>Contact</h5>
+            </div>
+            <div>
+                <h5>Address</h5>
+            </div>
+            <div>
+                <h5>Bankname</h5>
+            </div>
+            <div>
+                <h5>Account no</h5>
+            </div>
+            <div>
+                <h5>IFSC</h5>
+            </div>
+            <div>
+                <a class="btn btn-success m-3" href="{% url 'centerupdate' pro.id  %}">Update Profile</a>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+            <div>
+                <h5>:</h5>
+            </div>
+
+        </div>
+        <div>
+            <div>
+                <h5>{{pro.company_username}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_email}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_create_password}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_description}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_contact}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_address}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_bankname}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_accountNo}}</h5>
+            </div>
+            <div>
+                <h5>{{pro.company_ifsc}}</h5>
+            </div>
+            <div>
+                <a class="btn btn-danger m-3" href="{% url 'centerdelete' pro.id  %}">Signout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

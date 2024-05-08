@@ -1,0 +1,112 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+User Signup
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+        style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+        <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+                PHONESMITH
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active mx-3" href="#">Signup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="{% url 'userlogin' %}">Login/Already User</a>
+                        </li>
+                        
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-white" style="margin-top:100px;">
+        <h1 class="my-5 text-center text-primary">User Signup Form</h1>
+        <div class="mx-auto">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">First Name:</div>
+                    <div class="col-4">{{form.user_fname}}</div>
+                </div>
+    
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Last Name:</div>
+                    <div class="col-4">{{form.user_lname}}</div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Email:</div>
+                    <div class="col-4">{{form.user_email}}</div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Password:</div>
+                    <div class="col-4">{{form.user_create_password}}</div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Date Of Birth:</div>
+                    <div class="col-4"><div class="row ms-1">{{form.user_dob}}</div></div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Contact:</div>
+                    <div class="col-4">{{form.user_contact}}</div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">City:</div>
+                    <div class="col-4">{{form.user_city}}</div>
+                </div>
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Select State:</div>
+                    <div class="col-4">{{form.user_state}}</div>
+                </div>
+                
+                <div class="row mb-3 mx-auto justify-content-center">
+                    <div class="col-2 align-self-center" style="font-size:20px;">Pincode:</div>
+                    <div class="col-4">{{form.user_pincode}}</div>
+                </div>
+                
+    
+                <div class="row mx-auto w-50 ps-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            I agree to the terms and conditions of policies.
+                        </label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting the Signup form.
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-auto justify-content-center">
+                    <div class="col-3"><button type="submit" class="btn btn-success my-3 btn-lg">Signup</button></div>
+                    <div class="col-2"><a class="btn btn-primary my-3  btn-lg" href="{% url 'home' %}">Cancel</a></div>
+                </div>
+            </form>
+    
+        </div>
+    </div>
+
+{% endblock %}

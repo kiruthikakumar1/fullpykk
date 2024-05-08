@@ -1,0 +1,80 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+{{company_name}} Mobile Products
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+    style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+    <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+            PHONESMITH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" aria-current="page" href="{% url 'homelog' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="{% url 'aboutlog' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-3" href="#">{{company_name}} Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'company' %}">Shop Details</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="bg-light py-4" style="min-height:600px; margin-top: 80px;">
+    <div class="container">
+        <div class="row row-cols-3">
+            <div class="col-12">
+                <h3 class="mb-3 text-center text-danger">{{company_name}} Products</h3>
+                <hr style="border-color:#b8bfc2;">
+            </div>
+            {% for item in products %}
+            <div class="col">
+                <div class="card m-3">
+                    <img src="{{item.product_image.url}}" alt="Categories" class="mx-auto"
+                        style="object-fit: contain; width: 250px; height: 250px;">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-primary text-center">{{ item.product_name }}</h5>
+                        <h6 text-primary>{{item.product_description}}</h6>
+                        <p class="card-text">
+                        <div class="d-flex justify-content-between">
+                            <p class="text-dark">Original Price</p>
+                            <p class="text-danger"><s>Rs.{{ item.product_originalPrice | stringformat:'d'}}</s></p>
+
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p class="text-dark fw-bold">Offer Price</p>
+                            <p class="text-success fw-bold">Rs.{{ item.product_sellingPrice | stringformat:'d' }}</p>
+                        </div>
+                        <p class="text-center"><a class="btn btn-primary"
+                                href="{% url 'oneproduct' company_name item.product_name %}">View Details</a></p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.about{
+    height: 570px;
+    position: relative;
+}
+
+
+.part{
+    color: white;
+    position: absolute;
+    top: 200px;
+    left: 150px;
+    font-style: italic;
+    font-weight: bold;
+   
+}
+.part h3{
+    color:#1562ed ;
+}
+#step1,#step2,#step3{
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+#page1,#page2,#page3{
+    width: 100%;
+    height: 200px;
+    display: grid;
+    justify-content: center;
+    padding: 20px;
+}

@@ -1,0 +1,69 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+Service Center Login
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+    style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 130px; width: 100%;">
+    <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+            PHONESMITH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'register' %}">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-3" href="#">Login</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="text-white text-center" style="margin-top: 100px;">
+    <div class="mb-3">
+        <h3  class="text-primary">Login</h3>
+    </div>
+    <form action="{% url 'centerprofile' %}" class="needs-validation mt-3" novalidate method="POST">
+
+        <div class="mb-3">
+            <div class="mb-1"><label for="company_username">Username</label></div>
+            <input type="text" name="company_username" id="company_username"
+                style="max-width: 200px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+        </div>
+        <div>
+            <div class="mb-1"><label for="company_create_password">Password</label></div>
+            <input type="text" name="company_create_password" id="company_create_password"
+                style="max-width: 200px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+        </div>
+        <div><button type="submit" class="btn btn-success my-3 btn-lg">Login</button></div>
+    </form>
+
+</div>
+
+
+{% endblock %}

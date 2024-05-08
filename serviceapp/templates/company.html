@@ -1,0 +1,120 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+Service Centers
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+  style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+  <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+      PHONESMITH
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link mx-3" aria-current="page" href="{% url 'homelog' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  mx-3" aria-current="page" href="{% url 'aboutlog' %}">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active mx-3" href="#">Shop Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="#contact">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="bg-light  py-4" style="min-height:600px;">
+  <div class="text-center text-primary" style="margin-top:60px;">
+    <h1>Mobile Service Centers</h1>
+  </div>
+  <div class="container-fluid" style="margin-top:20px;">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+
+      {% for x in company %}
+      <div class="col my-2 mx-5">
+        <div class="card text-center" style="width: 18rem; border: 2px solid #6351ce;">
+
+          <div class="bg-white bg-opacity-50">
+            <img src="{{x.company_image.url}}" alt=""
+              style="object-fit: contain; width: 275px; height: 184px;">
+              <hr>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title text-danger fst-italic">{{x.company_name}}</h1>
+            <h6 class="card-subtitle text-body-secondary text-center mb-1">{{x.company_email}} </h6>
+            <p class="card-text">{{x.company_description}} </p>
+            <a class="btn btn-primary" href="{% url 'company' x.company_name %}">View Products</a>
+            <p> <span class="text-dark fw-bold">Address: </span> {{x.company_address}}</p>
+            <p> <span class="text-dark fw-bold">Phone: </span> {{x.company_contact}}</p>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<div class="text-white p-5">
+  <p>
+    In today’s digital age, mobile phones have become an indispensable part of our lives. From communication and
+    productivity to entertainment and social networking, these devices play a pivotal role. However, like any electronic
+    device, mobile phones are not immune to wear and tear, and they can occasionally malfunction or get damaged. When
+    that happens, the need for reliable phone repair services becomes paramount. In this article, we will explore the
+    world of mobile phone repair service, both offline and online, highlighting the key aspects of these services and
+    their importance in keeping our beloved devices in top-notch condition.
+  </p>
+  <p>
+  <h3>Mobile Repair Online</h3>
+
+  In recent years, online mobile phone repair services have gained significant traction. These services offer the
+  convenience of getting your phone repaired without leaving your home. Here’s how they work:
+  <ul>
+    <li>
+      <h6>Online Diagnosis:</h6> You submit your phone’s issue through a website or app, often accompanied by relevant
+      details and photos.
+    </li>
+    <li class="my-2">
+      <h6>Quote and Approval:</h6> The service provider assesses the problem and sends you a cost estimate. You have the
+      option to approve or decline the quote.
+    </li>
+    <li>
+      <h6>Courier Pickup:</h6>If you agree to the repair, the company arranges for a courier to pick up your device from
+      your location.
+    </li>
+    <li class="my-2">
+      <h6>Remote Repair or Service Center:</h6> Depending on the issue’s complexity, your phone might be repaired
+      remotely or sent to a physical service center.
+    </li>
+    <li>
+      <h6>Return Delivery:</h6> Once the repair is complete, your phone is returned to you, often via courier.
+    </li>
+  </ul>
+  </p>
+  <div>
+    <h5>
+      You can purchase mobiles online in respective mobile service centers.
+    </h5>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

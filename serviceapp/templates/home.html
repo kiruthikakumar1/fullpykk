@@ -1,0 +1,162 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+Home
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+  style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+  <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+      PHONESMITH
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="{% url 'signup' %}">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="{% url 'userlogin' %}">Login/Already User</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div>
+  <div id="carouselExample" class="carousel slide" style="margin-top:100px ;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/mobile1.jpg' %}" class="d-block mx-auto p-2 bg-white rounded" alt="mobile1"
+          style="width: 550px; height: 400px; object-fit: cover; object-position: center;">
+        <p class="d-block mx-auto my-3 text-white" style="width: fit-content; height: 50px;">100% Customer Satisfaction.
+        </p>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/mobile2.jpg' %}" class="d-block mx-auto p-2 bg-white rounded" alt="mobile2"
+          style="width: 550px; height: 400px; object-position: center;">
+        <p class="d-block mx-auto my-3 text-white" style="width: fit-content; height: 50px;">Perfect Delivery Time.</p>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/mobile3.jpg' %}" class="d-block mx-auto p-2 bg-white rounded" alt="mobile3"
+          style="width: 550px; height: 400px; object-fit: cover; object-position: center;">
+        <p class="d-block mx-auto my-3 text-white" style="width: fit-content; height: 50px;">No Data Shared To Third
+          Parties.</p>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <div class="text-white m-5">
+    <h1  class="text-primary">Mobile Service Center</h1>
+    <div>
+      <p>Today, mobile phones are widely used devices. These days, mobile phones are used by everyone, including
+        children and adults. Mobile phones and smartphones are truly very helpful and benefit people in many different
+        ways. And that is the reason why things get difficult when you have problems with your phone. Using the phone
+        continuously can develop many problems or suffer temporary damage. This mostly can happen when the screen is
+        damaged, hardware failure or the device is drowned in water. If you're looking for a replacement for your broken
+        device, there are a number of advantages to mobile phone repair that you should be aware of.</p>
+      <h4>Signup for view our Mobile service Center <a class="btn btn-primary m-3" href="{% url 'signup' %}">Signup</a>
+      </h4>
+      <h5>Already User , Just Login to view Shop details<a class="btn btn-primary m-3"
+          href="{% url 'userlogin' %}">Login</a></h5>
+      <p>Mobile phone repairing shops are probably one of the most common services available today. They provide a
+        variety of services, including screen and display replacement. They are the first place people turn to when
+        their phone breaks suddenly or stops working properly. These repair shops are the best places to find spare
+        parts for your mobile phone if you require a screen protector, new glass, or other spare parts. Many companies
+        specialise in fixing mobile phones. Whatever the issue, the skilled and knowledgeable team of professionals on
+        board can provide mobile phone repair and services , regardless of the shape, size, or brand, after correctly
+        diagnosing the issue. The technicians use cutting-edge equipment and technologies, allowing them to fix your
+        device in the shortest amount of time. The availability of skilled and reliable mobile repair services help you
+        get your phone back in good working condition at a fraction of the cost. These days, locating a reliable mobile
+        phone service technician can be difficult, but you can find it by searching for mobile phone repair and services
+        online.</p>
+    </div>
+  </div>
+
+  <div class="text-white m-5">
+    <h4>Go To "About" Page For Register Your Service Center To Start Business</h4>
+    <a class="btn btn-primary m-3" href="{% url 'about' %}">About</a>
+  </div>
+
+  <div class="container-fluid bg-light d-flex flex-column  row-gap-5 p-5">
+    <h1 class="container">Featured Service Centers</h1>
+    <div class="d-flex justify-content-between">
+      <div><img src="{% static 'images/samsung-logo.png' %}" alt="" width="200px" height="100px"></div>
+      <div><img src="{% static 'images/nokia-logo.png' %}" alt="" width="200px" height="100px"></div>
+      <div><img src="{% static 'images/vivo-logo.webp' %}" alt="" width="200px" height="100px"></div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div><img src="{% static 'images/oppologo.png' %}" alt="" width="200px" height="100px"></div>
+      <div><img src="{% static 'images/oneplus-logo.png' %}" alt="" width="200px" height="100px"></div>
+      <div><img src="{% static 'images/xiaomilogo.png' %}" alt="" width="200px" height="100px"></div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div><img src="{% static 'images/realmelogo.png' %}" alt="" width="200px" height="100px"></div>
+      <div><img src="{% static 'images/apple-logo.png' %}" alt="" width="100px" height="100px"></div>
+      <div><img src="{% static 'images/motorolalogo.png' %}" alt="" width="200px" height="100px"></div>
+    </div>
+  </div>
+
+  <div class="text-white m-5">
+    <h3>Frequent Questions</h3>
+    <div>
+      <p>1. Do mobile phone repairing shops provide screen replacement services?</p>
+      <p class="ms-3">Yes, from screen replacement to hardware issues, phone repair shops provide all mobile repair
+        services. You can ask about the screen replacement service beforehand.</p>
+    </div>
+    <div>
+      <p>2. Is there a warranty on mobile phone repairs?</p>
+      <p class="ms-3">Yes, there is a warrenty on mobile phone repairs according to the different mobile products.</p>
+    </div>
+    <div>
+      <p>3. What quality of parts do repairing shops use in mobile phone repair and services near me?</p>
+      <p class="ms-3">Most reliable shops offer a limited-period warranty on mobile phone repairs. It is advised to know
+        about the warranty terms and conditions beforehand.</p>
+    </div>
+    <div>
+      <p>4. Do I have to back up my data before availing mobile phone repairing service ?</p>
+      <p class="ms-3">Mobile phone repairing shops always use genuine parts. If original parts are not available, these
+        service centres ensure to get OEM parts from the same factories that produce the parts, so you can be assured of
+        the quality of service.</p>
+    </div>
+    <div>
+      <p>5. How much time do mobile phone repairing shops take for mobile phone repair and services ?</p>
+      <p class="ms-3">The time needed to fix a mobile phone issue varies depending on the problem at hand. Most minor
+        mobile phone problems can be fixed within 30 to 40 minutes. If the problem is a major one, the technician may
+        need to keep your handset for a day or two.</p>
+    </div>
+  </div>
+
+
+
+
+
+  {% endblock %}

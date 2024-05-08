@@ -1,0 +1,118 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+Add Products
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+    style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+    <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+            PHONESMITH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-3" aria-current="page" href="#">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="{% url 'centernewlog' %}">Login For Profile</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container text-white" style="margin-top:100px;">
+    <h1 class="my-5 text-center text-primary">Add Your Products</h1>
+    <div class="mx-auto">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Select Service Center:</div>
+                <div class="col-4">{{form.company}}</div>
+            </div>
+
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Product Name:</div>
+                <div class="col-4">{{form.product_name}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Product Image:</div>
+                <div class="col-4">{{form.product_image}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Original Price:</div>
+                <div class="col-4">{{form.product_originalPrice}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Selling Price:</div>
+                <div class="col-4">{{form.product_sellingPrice}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Product Color:</div>
+                <div class="col-4">{{form.product_color}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Battery Capacity:</div>
+                <div class="col-4">{{form.product_battery}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Product Storage:</div>
+                <div class="col-4">{{form.product_storage}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Screen Size:</div>
+                <div class="col-4">{{form.product_screen}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Network:</div>
+                <div class="col-4">{{form.product_network}}</div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Product Features:</div>
+                <div class="col-4">{{form.product_features}}</div>
+            </div>
+
+            <div class="row mx-auto w-50 ps-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        I agree to the terms and conditions of policies.
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting the form.
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto justify-content-center">
+                <div class="col-3"><button type="submit" class="btn btn-success my-3 btn-lg">Upload</button></div>
+                <div class="col-2"><a class="btn btn-primary my-3  btn-lg" href="{% url 'about' %}">Cancel</a></div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+User Profile Update
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+        style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+        <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+                PHONESMITH
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="{% url 'company' %}">Shop Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="#">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="container text-white" style="margin-top:100px;">
+    <h1 class="my-5 text-center text-primary">Update Profile</h1>
+    <div class="mx-auto">
+        <form action="userupdateperson/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">First Name:</div>
+                <div class="col-4">
+                    <input type="text" name="user_fname" id="user_fname" value="{{person.user_fname}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Last Name:</div>
+                <div class="col-4">
+                    <input type="text" name="user_lname" id="user_lname" value="{{person.user_lname}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Email:</div>
+                <div class="col-4">
+                    <input type="text" name="user_email" id="user_email" value="{{person.user_email}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Password:</div>
+                <div class="col-4">
+                    <input type="text" name="user_create_password" id="user_create_password" value="{{person.user_create_password}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Date Of Birth:</div>
+                <div class="col-4">
+                    <input type="text" name="user_dob" id="user_dob" pattern="\d{4}-\d{2}-\d{2}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Contact:</div>
+                <div class="col-4">
+                    <input type="text" name="user_contact" id="user_contact" value="{{person.user_contact}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">City:</div>
+                <div class="col-4">
+                    <input type="text" name="user_city" id="user_city" value="{{person.user_city}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">State:</div>
+                <div class="col-4">
+                    <select id="user_state" name="user_state" required style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                        <option selected disabled value="">Choose...</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharastra">Maharastra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Megalaya">Megalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttarkhand">Uttarkhand</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3 mx-auto justify-content-center">
+                <div class="col-2 align-self-center" style="font-size:20px;">Pincode:</div>
+                <div class="col-4">
+                    <input type="text" name="user_pincode" id="user_pincode" value="{{person.user_pincode}}" style="width: 300px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+                </div>
+            </div>
+            
+
+            <div class="row mx-auto w-50 ps-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        I agree to the terms and conditions of policies.
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting the registration form.
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto justify-content-center">
+                <div class="col-3"><button type="submit" class="btn btn-success my-3 btn-lg">Update</button></div>
+                <div class="col-3"><a class="btn btn-danger btn-lg my-3" href="{% url 'home' %}">Cancel</a></div>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+{% endblock %}

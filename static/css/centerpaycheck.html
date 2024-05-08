@@ -1,0 +1,85 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+
+Service Center Payment Page
+
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+    style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+    <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+            PHONESMITH
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-3" aria-current="page" href="#">{{pro.company_username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-3" aria-current="page" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="text-white text-center" style="margin-top: 100px;">
+    <h3>Login Succesful</h3>
+    <p>Step2 is completed</p>
+    <div class="my-2">
+        <h3 class="text-primary">Step3: Payment</h3>
+    </div>
+    <div>
+        <p>
+            Pay just Rs.1500 per month to add your products and start your earning with us.
+        </p>
+    </div>
+    <div class="my-2">
+        <h3 class="text-primary">Check Your Details</h3>
+    </div>
+    <div>
+        <div class="mb-1"><label for="centerusername">Username</label></div>
+        <input type="text" name="centerusername" id="centerusername" value="{{pro.company_username}}" readonly
+            style="width: 250px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+    </div>
+    <div class="my-2">
+        <div class="mb-1"><label for="centerpassword">Bankname</label></div>
+        <input type="text" name="centerpassword" id="centerpassword" value="{{pro.company_bankname}}" readonly
+            style="width: 250px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+    </div>
+    <div>
+        <div class="mb-1"><label for="centerpassword">Account no</label></div>
+        <input type="text" name="centerpassword" id="centerpassword" value="{{pro.company_accountNo}}" readonly
+            style="width: 250px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+    </div>
+    <div class="my-2">
+        <div class="mb-1"><label for="centerpassword">IFSC</label></div>
+        <input type="text" name="centerpassword" id="centerpassword" value="{{pro.company_ifsc}}" readonly
+            style="width:250px;height: 30px; text-align: center; border: none; outline: none; border-radius: 5px;">
+    </div>
+
+    <a class="btn btn-primary mb-5 mt-3" href="{% url 'centerpay' %}">Click to pay</a>
+
+</div>
+
+
+
+{% endblock %}

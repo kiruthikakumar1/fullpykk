@@ -1,0 +1,97 @@
+{% extends 'footermaster.html' %}
+
+{% block title %}
+Analytics
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
+  style="background-color: #6351ce; position: fixed; top: 0;margin-bottom: 30px; width: 100%;">
+  <div class="container-fluid" style="font-weight: bold; font-size: 20px; font-style: italic;">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/playstation.png' %}" alt="" width="50px" height="50px">
+      PHONESMITH
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link mx-3" aria-current="page" href="{% url 'homelog' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  mx-3" aria-current="page" href="{% url 'aboutlog' %}">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link  mx-3" href="{% url 'company' %}">Shop Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active mx-3" href="#">Analytical Page</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" style="margin-top:80px;">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+
+    {% for a in orders %}
+    <div class="col my-2 mx-5">
+      <div class="card" style="width: 23rem; border: 2px solid #6351ce;">
+
+        <div class="bg-white bg-opacity-50 text-danger text-center mt-2">
+          <h3>{{a.odproname}}</h3>
+          <hr>
+        </div>
+        <div class="card-body ps-5">
+          <p class="card-title fst-italic">
+            <span class="text-secondary">Service Center: </span>
+            <span class="text-dark fw-bold">{{a.odcomname}}</span>
+          <p>
+          <p class="card-title">
+            <span class="text-secondary">Color: </span>
+            <span class="text-dark fw-bold">{{a.odprocolor}}</span>
+          <p>
+          <p class="card-subtitle mb-3">
+            <span class="text-secondary">Storage: </span>
+            <span class="text-dark fw-bold">{{a.odprostorage}}</span>
+          </p>
+          <p class="card-text">
+            <span class="text-secondary">Price: </span>
+            <span class="text-success fw-bold">{{a.odproprice}}</span>
+          </p>
+          <p class="card-text">
+            <span class="text-secondary">Network: </span>
+            <span class="text-dark fw-bold">{{a.odpronetwork}}</span>
+          </p>
+          <p>
+            <span class="text-secondary">Battery: </span>
+            <span class="text-dark fw-bold">{{a.odprobattery}}</span>
+          </p>
+          <p>
+            <span class="text-secondary">Screen Size:</span>
+            <span class="text-dark fw-bold">{{a.odproscreen}}</span>
+          </p>
+          <p>
+            <span class="text-secondary">Payment:</span>
+            <span class="text-success fw-bold">Paid</span>
+          </p>
+          <p>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+  {% endblock %}
